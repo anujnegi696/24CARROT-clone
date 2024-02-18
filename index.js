@@ -102,3 +102,26 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
+// Function to check scroll position and display/hide the button
+window.onscroll = function() {
+    scrollFunction();
+};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("scrollTopBtn").style.display = "block";
+    } else {
+        document.getElementById("scrollTopBtn").style.display = "none";
+    }
+}
+
+// Smooth scrolling function
+function scrollToTop() {
+    // Scroll to the top of the document smoothly
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
+
