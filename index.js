@@ -124,4 +124,18 @@ function scrollToTop() {
     });
 }
 
+ const slider = document.getElementById('slider');
+ const container = document.querySelector('.home-fourth-container');
 
+ slider.addEventListener('input', function() {
+    const value = parseInt(this.value);     const containerWidth = container.offsetWidth;
+     const cardWidth = container.querySelector('.home-fourth-container-card').offsetWidth;
+     const maxScroll = (value - 1) * cardWidth;
+    container.style.transition = 'scroll-left 0.3s ease'; // Apply smooth transition
+     container.scrollLeft = maxScroll;
+});
+
+ // Reset transition after the transition ends to avoid affecting other scrolls
+ container.addEventListener('transitionend', function() {
+     container.style.transition = 'none';
+});
